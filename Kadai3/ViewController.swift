@@ -31,34 +31,32 @@ final class ViewController: UIViewController {
 
 @objc private extension ViewController {
     func tppedCalculateButton() {
-        
-        var leftResultNum: Int?
-        var rightResultNum: Int?
-        
-        if leftSwitch.isOn == true {
+       
+        let leftResultNum: Int
+        if leftSwitch.isOn {
             guard let leftInputNum = Int(leftTextField.text ?? "" ) else { return }
-            let minusLeftNum = -1 * leftInputNum
+            let minusLeftNum = -leftInputNum
             leftResultLabel.text = String(minusLeftNum)
             leftResultNum = minusLeftNum
         } else {
-            let leftInputNum = Int(rightTextField.text ?? "")
+            let leftInputNum = Int(leftTextField.text ?? "")
             leftResultLabel.text = String(leftInputNum!)
-            leftResultNum = leftInputNum
+            leftResultNum = leftInputNum ?? 0
         }
         
-
-        if rightSwitch.isOn == true {
+        let rightResultNum: Int
+        if rightSwitch.isOn {
             guard let rightInputNum = Int(rightTextField.text ?? "") else { return }
-            let minusRgihtNum = -1 * rightInputNum
+            let minusRgihtNum = -rightInputNum
             rightResultLabel.text = String(minusRgihtNum)
             rightResultNum = minusRgihtNum
         } else {
             let rightInputNum = Int(rightTextField.text ?? "")
             rightResultLabel.text = String(rightInputNum!)
-            rightResultNum = rightInputNum
+            rightResultNum = rightInputNum ?? 0
         }
         
-        let result = calculate(leftNum: leftResultNum!, rightNum: rightResultNum!)
+        let result = calculate(leftNum: leftResultNum, rightNum: rightResultNum)
         allResultLabel.text = result
         
     }
