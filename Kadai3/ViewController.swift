@@ -26,8 +26,19 @@ final class ViewController: UIViewController {
 @objc private extension ViewController {
     func tppedCalculateButton() {
         if leftSwitch.isOn == true {
+            guard let leftInputNum = Int(leftTextField.text ?? "" ) else { return  }
+            let minusLeftNum = -1 * leftInputNum
             
+    
         } else {
+            let leftInputNum = Int(rightTextField.text ?? "")
+        }
+        
+        if rightSwitch.isOn == true {
+            guard let rightInputNum = Int(rightTextField.text ?? "") else { return  }
+            let minusRgihtNum = -1 * rightInputNum
+        } else {
+            let rightInputNum = Int(rightTextField.text ?? "")
             
         }
         
