@@ -22,11 +22,6 @@ final class ViewController: UIViewController {
         super.viewDidLoad()
         calculateButton.addTarget(self, action: #selector(tppedCalculateButton), for: .touchUpInside)
     }
-    
-    private func calculate(leftNum: Int, rightNum: Int) -> String {
-       let result = leftNum + rightNum
-        return String(result)
-    }
 }
 
 @objc private extension ViewController {
@@ -56,8 +51,8 @@ final class ViewController: UIViewController {
             rightResultNum = rightInputNum ?? 0
         }
         
-        let result = calculate(leftNum: leftResultNum, rightNum: rightResultNum)
-        allResultLabel.text = result
+        let result = leftResultNum + rightResultNum
+        allResultLabel.text = String(result)
         
     }
 }
