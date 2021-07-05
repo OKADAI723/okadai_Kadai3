@@ -8,7 +8,7 @@
 import UIKit
 
 final class ViewController: UIViewController {
-
+    
     @IBOutlet private weak var leftTextField: UITextField!
     @IBOutlet private weak var rightTextField: UITextField!
     @IBOutlet private weak var leftSwitch: UISwitch!
@@ -16,7 +16,7 @@ final class ViewController: UIViewController {
     @IBOutlet private weak var calculateButton: UIButton!
     @IBOutlet private weak var leftResultLabel: UILabel!
     @IBOutlet private weak var rightResultLabel: UILabel!
-    @IBOutlet weak var allResultLabel: UILabel!
+    @IBOutlet private weak var allResultLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +26,7 @@ final class ViewController: UIViewController {
 
 @objc private extension ViewController {
     func tppedCalculateButton() {
-       
+        
         let leftResultNum: Int
         if leftSwitch.isOn {
             guard let leftInputNum = Int(leftTextField.text ?? "" ) else { return }
